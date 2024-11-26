@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'hack-team-4'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF4B4F4F3AE842218EAC3AB5A6D33F71 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_488F4F1D1D0E47DCB5DB07DE69F583BF }}
