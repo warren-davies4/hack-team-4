@@ -8,9 +8,11 @@ import urllib.request
 import json
 import os
 import ssl
+from dotenv import load_dotenv
 
+load_dotenv()
 LOGO_IMAGE = "images/NHS_England_logo.jpg"
-
+API_KEY = os.getenv('API_KEY')
 
 # Streamed response emulator
 def response_generator(message, persona, language):
@@ -24,7 +26,7 @@ def response_generator(message, persona, language):
 
     url = 'https://nhs-career-coach-vector.uksouth.inference.ml.azure.com/score'
     # Replace this with the primary/secondary key, AMLToken, or Microsoft Entra ID token for the endpoint
-    api_key = 'wUncBXkhxEuQF6EhRKQ79n3hA0NR2BcJ'
+    api_key = API_KEY
     if not api_key:
         raise Exception("A key should be provided to invoke the endpoint")
 
