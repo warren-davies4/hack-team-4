@@ -51,3 +51,11 @@ img.logo-img {
     width:50px;
     height: auto;
 }
+
+
+header.stAppHeader {
+    display: none;
+}
+.st-emotion-cache-1eo1tir {
+    padding-top: 50px;
+}

@@ -24,7 +24,7 @@ def response_generator(message, persona, language):
     }
     body = str.encode(json.dumps(data))
 
-    url = 'https://nhs-career-coach-vector.uksouth.inference.ml.azure.com/score'
+    url = 'https://nhs-career-coach-2.uksouth.inference.ml.azure.com/score'
     # Replace this with the primary/secondary key, AMLToken, or Microsoft Entra ID token for the endpoint
     api_key = API_KEY
     if not api_key:
