@@ -3,14 +3,55 @@ import random
 import time
 import streamlit.components.v1 as components
 import base64
+import requests
+import urllib.request
+import json
+import os
+import ssl
 
 LOGO_IMAGE = "images/NHS_England_logo.jpg"
 
 
 # Streamed response emulator
 def response_generator(message, persona, language):
-    response = f"You said {message}, you are a {persona}, we are speaking in {language}"
-    for word in response.split():
+
+    data = {
+        "language": language,
+        "persona": persona,
+        "question": message
+    }
+    body = str.encode(json.dumps(data))
+
+    url = 'https://nhs-career-coach-vector.uksouth.inference.ml.azure.com/score'
+    # Replace this with the primary/secondary key, AMLToken, or Microsoft Entra ID token for the endpoint
+    api_key = 'wUncBXkhxEuQF6EhRKQ79n3hA0NR2BcJ'
+    if not api_key:
+        raise Exception("A key should be provided to invoke the endpoint")
+
+    headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+    req = urllib.request.Request(url, body, headers)
+
+    try:
+        response = urllib.request.urlopen(req)
+
+        result = response.read()
+        print(result)
+    except urllib.error.HTTPError as error:
+        print("The request failed with status code: " + str(error.code))
+
+        # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+        print(error.info())
+        print(error.read().decode("utf8", 'ignore'))
+
+
+    # response = f"You said {message}, you are a {persona}, we are speaking in {language}"
+    response = result
+    result = json.loads(result)
+    result = result['output']
+    # return result
+
+    for word in result.split():
         yield word + " "
         time.sleep(0.05)
 
@@ -83,5 +124,7 @@ if prompt := st.chat_input("What is up?"):
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         response = st.write_stream(response_generator(st.session_state.messages[-1]['content'], persona, language))
+
+
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
