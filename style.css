@@ -4,7 +4,8 @@ body {
 root { background: white;}
 
 #who-are-you,
-#let-s-chat { color: #005eb8; }
+#let-s-chat,
+#nhs-career-coach { color: #005eb8; }
 p {color: black; font-family: sans-serif;}
 .st-emotion-cache-13k62yr,
 .st-emotion-cache-hzygls,
@@ -28,4 +29,20 @@ p {color: black; font-family: sans-serif;}
 
 .st-emotion-cache-janbn0{
     background: none;
+}
+
+.container {
+    display: flex;
+}
+.logo-text {
+    font-weight:700 !important;
+    font-size: 1.9rem !important;
+    color: black !important;
+    padding-top: 10px !important;
+    padding-left: 30px;
+}
+img.logo-img {
+    float:right;
+    max-width: 150px;
+    height: 100px;
 }
