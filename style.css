@@ -1,0 +1,31 @@
+body {
+    background: white;
+}
+root { background: white;}
+
+#who-are-you,
+#let-s-chat { color: #005eb8; }
+p {color: black; font-family: sans-serif;}
+.st-emotion-cache-13k62yr,
+.st-emotion-cache-hzygls,
+.st-bb,
+.st-cf { background: white; color: black;}
+.st-ae { background: white; color: black;}
+
+.st-emotion-cache-doy61h:hover, .st-emotion-cache-doy61h:active, .st-emotion-cache-doy61h:focus-visible {
+    background: #005eb8;
+    color: white;
+}
+
+.st-emotion-cache-1ppef92:hover, .st-emotion-cache-1ppef92:active, .st-emotion-cache-1ppef92:focus-visible {
+    background: #005eb8;
+    color: white;
+}
+
+.stBottomBlockContainer {
+  background: white; color: black;
+}
+
+.st-emotion-cache-janbn0{
+    background: none;
+}

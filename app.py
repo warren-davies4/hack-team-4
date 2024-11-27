@@ -1,6 +1,8 @@
 import streamlit as st
 import random
 import time
+import streamlit.components.v1 as components
+
 
 
 # Streamed response emulator
@@ -9,6 +11,11 @@ def response_generator(persona):
     for word in response.split():
         yield word + " "
         time.sleep(0.05)
+
+
+with open('./style.css') as f:
+    css = f.read()
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 st.title("Who are you?")
 
@@ -27,7 +34,7 @@ st.write("You selected:", persona)
 
 
 
-st.title("Simple chat")
+st.title("Let's chat")
 
 # Initialize chat history
 if "messages" not in st.session_state:
