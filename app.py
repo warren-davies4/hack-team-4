@@ -47,7 +47,6 @@ def response_generator(message, persona, language):
         print(error.info())
         print(error.read().decode("utf8", 'ignore'))
 
-    response = result
     result = json.loads(result)
     result = result['output']
     # return result
