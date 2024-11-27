@@ -126,7 +126,15 @@ if prompt := st.chat_input("What is up?"):
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         response = st.write_stream(response_generator(st.session_state.messages[-1]['content'], persona, language))
-
+        st.markdown(
+            f"""
+            <div class="container container--thumbs">
+                <img class="thumb" src="data:image/png;base64,{base64.b64encode(open("./images/thumb-up.png", "rb").read()).decode()}" width=50 height=50>
+                <img class="thumb" src="data:image/png;base64,{base64.b64encode(open("./images/thumb-down.png", "rb").read()).decode()}" width=50 height=50>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})

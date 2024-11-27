@@ -46,3 +46,8 @@ img.logo-img {
     max-width: 150px;
     height: 100px;
 }
+
+.container--thumbs img {
+    width:50px;
+    height: auto;
+}
