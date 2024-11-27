@@ -34,6 +34,7 @@ def response_generator(message, persona, language):
 
     req = urllib.request.Request(url, body, headers)
 
+    result = ""
     try:
         response = urllib.request.urlopen(req)
 
@@ -46,8 +47,6 @@ def response_generator(message, persona, language):
         print(error.info())
         print(error.read().decode("utf8", 'ignore'))
 
-
-    # response = f"You said {message}, you are a {persona}, we are speaking in {language}"
     response = result
     result = json.loads(result)
     result = result['output']
