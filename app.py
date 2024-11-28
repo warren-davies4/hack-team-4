@@ -49,9 +49,8 @@ def response_generator(message, persona, language):
 
     result = json.loads(result)
     result = result['output']
-    # return result
 
-    for word in result.split():
+    for word in result.split(" "):
         yield word + " "
         time.sleep(0.05)
 
@@ -72,12 +71,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-
 st.title("NHS Career coach")
 st.subheader("Who are you?")
-
-
 
 persona = st.selectbox(
     "Who are you?",
@@ -94,13 +89,17 @@ language = st.selectbox(
         "English", 
         "Spanish", 
         "Korean",
-        "Pirate"
+        "Pirate",
+        "Surfer",
+        "Cowboy",
+        "Samurai",
+        "Zombie",
+        "Santa Claus",
+        "Single syllable words only"
     ),
     index=None,
     placeholder="I am a...",
 )
-
-
 
 st.subheader("Let's chat")
 
